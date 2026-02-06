@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+namespace Com.IsartDigital.SokobanProto1;
+
 public partial class GameManager : Node2D
 {
     [Export] private Button restart;
@@ -29,14 +31,9 @@ public partial class GameManager : Node2D
         restart.Pressed += () => GetTree().ReloadCurrentScene();
     }
 
-    private bool won;
-
     public override void _Process(double pDelta)
     {
-        if (!BlocSpot.blocSpots.All(pBlocSpot => pBlocSpot.IsValid()) || won) return;
-        GD.Print("GG");
-        won = true;
-        wonText.Visible = true;
+        
     }
 
     protected override void Dispose(bool pDisposing)
