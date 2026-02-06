@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://otx3f34880qo"]
+
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_ljh0p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fln2"]
+size = Vector2(64, 64)
+
+[node name="Player" type="Area2D" node_paths=PackedStringArray("rayCast")]
+script = ExtResource("1_ljh0p")
+rayCast = NodePath("RayCast")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -32, -32, 0, 0, 32, 32, 0)
+
+[node name="RayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -32)
+collide_with_areas = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5fln2")
